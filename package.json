@@ -1,6 +1,6 @@
 {
   "name": "telegram_notification",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This package will be used to send notification on Telegram whenever we get error in our application.",
   "main": "index.js",
   "type": "module",
