@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios')
 
 const { TELEGRAM_BOT_TOKEN, CHANNEL_ID } = process.env;
 
@@ -31,4 +31,4 @@ const sendTelegramNotification = async (message = 'pass some super message as a 
   }
 };
 
-export { sendTelegramNotification };
+module.exports = { sendTelegramNotification };

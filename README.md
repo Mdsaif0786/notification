@@ -1,64 +1,98 @@
-This package will be usefull for sending Notification on Telegram.
+
+# Telegram Notification Sender
+
+# Description:
+
+Telegram Notification Sender is a lightweight Node.js module designed to easily send notifications to a Telegram channel or group using the Telegram Bot API. Simply set up your environment variables with your bot token and channel ID, and start sending messages programmatically. Perfect for automated notifications, alerts, or updates from your applications.
+
+This package provides a simple API to interact with the Telegram Bot API, handles error logging, and returns useful status codes to ensure your messages are delivered successfully.
+
+## Features
+
+- Sends notifications to a specified Telegram channel or group.
+- Utilizes the Telegram Bot API for message delivery.
+- Handles basic error logging and response handling.
+
+## Installation
+
+You can install this package via npm:
+
+```bash
+npm install telegram-notification
+```
+
+## Environment Variables
+
+Make sure to set the following environment variables in your `.env` file:
+
+```bash
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+CHANNEL_ID=your_channel_or_group_id
+```
+
+- `TELEGRAM_BOT_TOKEN`: The token for your Telegram bot, provided by BotFather.
+- `CHANNEL_ID`: The ID of the Telegram channel or group where you want to send the message.
+
+## Usage
+
+Here is a basic example of how to use the package:
+
+### Common Js Module
+
+```javascript
+const { sendTelegramNotification } = require('telegram-notification');
+
+const message = "Hello, this is a test notification!";
+
+sendTelegramNotification(message)
+  .then(response => {
+    console.log(response);  // { statusCode: 200, message: 'Message has been sent successfully' }
+  })
+  .catch(error => {
+    console.error(error);   // Handle any error here
+  });
+```
+
+### Es6 Module
 
 
-You can use this package in your application to be alert when some error occured in your application.
+```javascript
+import { sendTelegramNotification } from ('telegram-notification');
 
-Use this package in common error handler like catch block.
+const message = "Hello, this is a test notification!";
 
+sendTelegramNotification(message)
+  .then(response => {
+    console.log(response);  // { statusCode: 200, message: 'Message has been sent successfully' }
+  })
+  .catch(error => {
+    console.error(error);   // Handle any error here
+  });
+```
 
-How to use this package.
+## Functions
 
-step 1. install package using command " npm i telegram_notification"
-step 2. import telegtram_notification package where you want to use.
-step 3. destructure "sendTelegramNotification" function from telegram_notification 
-step 4. call "sendTelegramNotification" function with below parameters.
+### `sendTelegramNotification(message)`
 
+Sends a notification message to the configured Telegram channel.
 
-Function parameters
+- `message`: The message text to send (default message is used if none is provided).
 
-first parameter = Telegram_token     
-second parameter = chat_id
-3rd parameter = message or error               // That you want to send on telegram channel
+#### Response:
 
+- On success: `{ statusCode: 200, message: 'Message has been sent successfully' }`
+- On failure: `{ statusCode: <error code>, message: <error message> }`
 
-How to get Telegram_token
+## Error Handling
 
-step 1. go to telegram app
-step 2. search Botfather
-step 3. click on Botfather
-step 4. Enter the input which Bot has required.
-step 5. You will get a Token
+If the Telegram Bot Token or Channel ID is missing from the environment variables, the function will throw an error during initialization.
 
+### Example Error:
 
+```bash
+Error: TELEGRAM_BOT_TOKEN is missing in .env
+```
 
-How to integrate Bot to telegram channel.
+## License
 
-step 1. create a channel.
-step 2. add Bot to your channel.
-step 3. Give admin permission to your Bot.
-step 4. Now your Bot is ready to send message to your channel.
-
-
-
-How to get chat_id
-
-step 1. send first message in your channel anything
-step 2. open channel in Browser
-step 3. In URL parameters you will get some numeric character like 788814023
-step 4. chat_id = 788814023
-
-
-INSTALL
-
-npm i telegram_notification
-
-
-
-import { sendTelegramNotification } from "telegram_notification"
-
-let TELEGRAM_TOKEN = '6707116627:AAfggCLNPFROg-J99VZKObFggKcmf0p7GEOI'    // use your token
-let CHAT_ID = '770004083'     // Use your chai_id                                        
-
-sendTelegramNotification(TELEGRAM_TOKEN, CHAT_ID, 'helo')
-.then((res) => console.log(res))
-.catch((err) => console.log(err))
+MIT License.
