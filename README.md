@@ -18,7 +18,7 @@ This package provides a simple API to interact with the Telegram Bot API, handle
 You can install this package via npm:
 
 ```bash
-npm install telegram-notification
+npm install telegram_notification
 ```
 
 ## Environment Variables
@@ -40,7 +40,7 @@ Here is a basic example of how to use the package:
 ### Common Js Module
 
 ```javascript
-const { sendTelegramNotification } = require('telegram-notification');
+const { sendTelegramNotification } = require('telegram_notification');
 
 const message = "Hello, this is a test notification!";
 
@@ -57,7 +57,7 @@ sendTelegramNotification(message)
 
 
 ```javascript
-import { sendTelegramNotification } from ('telegram-notification');
+import { sendTelegramNotification } from ('telegram_notification');
 
 const message = "Hello, this is a test notification!";
 
